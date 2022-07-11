@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="harrnish" />
+    <title>Clients</title>
+    <link rel="stylesheet" href="projects.css" />
+    <link href="//db.onlinewebfonts.com/c/83d6d30c3006879dc7007bc60e3ad294?family=Orelo+SemiWide+ExtraBold" rel="stylesheet" type="text/css"/>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+    <!-- TweenMax - GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.4/TweenMax.min.js"></script>
+  </head>
+  <body>
+    <ul >
+       <a style="font-size:20px;" class="back" href="index.html#main-div"><li>Back</li></a> 
+      </ul>
+
+      
+
+    <div class="navigation-wrapper">
+      <div class="project-preview-wrapper">
+        <div class="project-preview"></div>
+      </div>
+      
+      
+      <ul class="navigation-list">
+        <li class="navigation-item">
+          <a  class="navigation-link navigation-link-1" href="projects_view.html">
+            <span data-text="Badshah" >Badshah</span>
+          </a>
+        </li>
+        <div class="project-overlay"></div>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-2" href="#">
+            <span data-text="VESPA">VESPA</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-3" href="#">
+            <span data-text="Front Row">Front Row</span>   
+
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-4" href="#">
+            <span data-text="Cult.fit">Cult.fit</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-5" href="#">
+            <span data-text="Jonnie Walker">Jonnie Walker</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-6" href="#">
+            <span data-text="Qorner">Qorner</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-7" href="#">
+            <span data-text="PhonePe">PhonePe</span>
+          </a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link navigation-link-8" href="#">
+            <span data-text="Wilddrum">Wilddrum</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="progressbar"></div>
+    
+    
+
+    <script>
+      $(document).ready(function() {
+        TweenMax.set(".project-preview", { width: 0 });
+
+        var tl = new TimelineLite();
+
+        $(document)
+          .on("mouseover", ".navigation-item", function(evt) {
+            tl = new TimelineLite();
+            tl.to($(".project-preview"), 1, {
+              width: "700px",
+              ease: Expo.easeInOut
+            });
+          })
+          .on("mouseout", ".navigation-item", function(evt) {
+            tl = new TimelineLite();
+            tl.to($(".project-preview"), 0.5, {
+              width: 0,
+              ease: Expo.easeInOut
+            });
+          });
+      });
+
+      $(".navigation-link-1").hover(function() {
+        $(".project-preview").css({ "background-image": "url(images/img-1.jpg)" });
+      });
+
+      $(".navigation-link-2").hover(function() {
+        $(".project-preview").css({ "background-image": "url(images/img-2.jpg)" });
+      });
+
+      $(".navigation-link-3").hover(function() {
+        $(".project-preview").css({ "background-image": "url(images/img-3.jpg)" });
+      });
+
+      $(".navigation-link-4").hover(function() {
+        $(".project-preview").css({ "background-image": "url(images/img-4.jpg)" });
+      });
+
+      $(".navigation-link-5").hover(function() {
+        $(".project-preview").css({ "background-image": "url(images/img-5.jpg)" });
+      });
+
+      $(".navigation-link-6").hover(function() {
+        $(".project-preview").css({ "background-image": "url(images/img-6.jpg)" });
+      });
+
+      $(".navigation-link-7").hover(function() {
+        $(".project-preview").css({ "background-image": "url(images/img-7.jpg)" });
+      });
+
+      $(".navigation-link-8").hover(function() {
+        $(".project-preview").css({ "background-image": "url(images/img-8.jpg)" });
+      });
+
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop(),
+          dh = $(document).height(),
+          wh = $(window).height();
+        scrollPercent = (scroll / (dh - wh)) * 100;
+        $(".progressbar").css("height", scrollPercent + "%");
+      });
+      const cursor = document.querySelector('.cursor');
+			document.addEventListener('mousemove',(e)=>{
+				cursor.style.left = e.pageX + 'px';
+				cursor.style.top = e.pageY + 'px';
+			})
+    </script>
+  </body>
+</html>
